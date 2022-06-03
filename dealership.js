@@ -28,10 +28,6 @@ Dealership.prototype.findByManufacturer = function(manufacturer){
     const sisters = this.currentCars.filter(e => e.manufacturer === manufacturer);
     return sisters;
 }
-const car1 = new Car("tesla", 5, "3 cylinder");
-const car2 = new Car("mercedes", 6, "4 cylinder");
-const dealer = new Dealership("pushers", 6, [car1, car2])
-console.log(dealer.findByManufacturer("mercedes"));
 
 // Find total value of all cars in stock
 // Map array of cars to an array of their prices
@@ -43,7 +39,7 @@ Dealership.prototype.totalValueOfCars = function(){
         (previousValue, currentValue) => previousValue + currentValue,
         initialValue
     );
-    console.log(`The total value of cars in stock is £${total}`);
+    return total;
 }
 
 module.exports = {

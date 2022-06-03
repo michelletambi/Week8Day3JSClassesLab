@@ -61,7 +61,7 @@ describe('dealership tests', () =>{
     test('can get cars of same make', () => {
         // arrange
         const car1 = new Car("tesla", 5, "3 cylinder");
-        const car2 = new Car("mercedes", 6, "4 cylinder");
+        const car2 = new Car("mercedes", 5, "4 cylinder");
         const car3 = new Car("mercedes", 6, "4 cylinder");
         const dealer = new Dealership("pushers", 6, [car1, car2, car3]);
         // act
@@ -70,6 +70,19 @@ describe('dealership tests', () =>{
         // assert
         expect(actual).toBe(expected);
     })
+    test('can find total value of cars', () => {
+        // arrange
+        const car1 = new Car("tesla", 5, "3 cylinder");
+        const car2 = new Car("mercedes", 5, "4 cylinder");
+        const car3 = new Car("mercedes", 6, "4 cylinder");
+        const dealer = new Dealership("pushers", 6, [car1, car2, car3]);
+        // act
+        const actual = dealer.totalValueOfCars();
+        const expected = 16;
+        // assert
+        expect(actual).toBe(expected);
+    })
+    test()
 
 
 
