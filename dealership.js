@@ -1,22 +1,15 @@
 const Car = require('./car')
+
 const Dealership = function(name, maxCars, currentCars){
     this.name = name;
     this.maxCars = maxCars;
     this.currentCars = currentCars;
 }
+
 // this function counts the number of cars in a dealership
 Dealership.prototype.count = function(){
     return this.currentCars.length;
 }
-// make some cars
-const car1 = new Car("tesla", 5, "3 cylinder");
-const car2 = new Car("mercedes", 6, "4 cylinder");
-
-const dealer = new Dealership(
-    "pushers",
-    5,
-    [car1]
-)
 
 // this function adds a car to the dealership.
 Dealership.prototype.addCar = function(car){
@@ -29,13 +22,11 @@ Dealership.prototype.getManufacturers = function() {
     console.log(manufacturers);
 }
 
-
 // Find all cars in dealership of same manufacturer
 Dealership.prototype.findByManufacturer = function(manufacturer){
     const sisters = this.currentCars.filter(e => e.manufacturer === manufacturer);
     console.log(sisters);
 }
-
 
 // Find total value of all cars in stock
 // Map array of cars to an array of their prices
@@ -52,9 +43,10 @@ Dealership.prototype.totalValueOfCars = function(){
 
 module.exports = {
     Dealership,
-    count,
-    addCar,
-    getManufacturers,
-    findByManufacturer,
-    totalValueOfCars
+    // // count,
+    // addCar,
+    // getManufacturers,
+    // findByManufacturer,
+    // totalValueOfCars
 };
+  
