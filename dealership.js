@@ -19,14 +19,19 @@ Dealership.prototype.addCar = function(car){
 // This function returns an array containing each car's manufacturer
 Dealership.prototype.getManufacturers = function() {
     const manufacturers = this.currentCars.map(element => element.manufacturer);
-    console.log(manufacturers);
+    return manufacturers;
 }
+
 
 // Find all cars in dealership of same manufacturer
 Dealership.prototype.findByManufacturer = function(manufacturer){
     const sisters = this.currentCars.filter(e => e.manufacturer === manufacturer);
-    console.log(sisters);
+    return sisters;
 }
+const car1 = new Car("tesla", 5, "3 cylinder");
+const car2 = new Car("mercedes", 6, "4 cylinder");
+const dealer = new Dealership("pushers", 6, [car1, car2])
+console.log(dealer.findByManufacturer("mercedes"));
 
 // Find total value of all cars in stock
 // Map array of cars to an array of their prices

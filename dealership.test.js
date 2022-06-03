@@ -40,14 +40,37 @@ describe('dealership tests', () =>{
         const car1 = new Car("tesla", 5, "3 cylinder");
         const car2 = new Car("mercedes", 6, "4 cylinder");
         const dealer = new Dealership("pushers", 6, [car1]);
-        dealer.addCar(car2);
         // act
+        dealer.addCar(car2);
         const actual = dealer.currentCars.length
         const expected = 2
         // assert
         expect(actual).toBe(expected);
     })
-    
+    test('can get manufacturers', () => {
+        // arrange
+        const car1 = new Car("tesla", 5, "3 cylinder");
+        const car2 = new Car("mercedes", 6, "4 cylinder");
+        const dealer = new Dealership("pushers", 6, [car1, car2]);
+        // act
+        const actual = dealer.getManufacturers();
+        const expected = ['tesla', 'mercedes'];
+        // assert
+        expect(actual).toStrictEqual(expected);
+    })
+    test('can get cars of same make', () => {
+        // arrange
+        const car1 = new Car("tesla", 5, "3 cylinder");
+        const car2 = new Car("mercedes", 6, "4 cylinder");
+        const car3 = new Car("mercedes", 6, "4 cylinder");
+        const dealer = new Dealership("pushers", 6, [car1, car2, car3]);
+        // act
+        const actual = dealer.findByManufacturer("mercedes").length;
+        const expected = 2;
+        // assert
+        expect(actual).toBe(expected);
+    })
+
 
 
 
